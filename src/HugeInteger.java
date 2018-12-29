@@ -13,9 +13,11 @@ public class HugeInteger {
 	
 	public void parse(String numero) {
 		
-		for(int i = 0; i < numero.length(); i++) {
+		
+		
+		for(int i = (getDigitos().length) - numero.length(), j = 0 ; i < getDigitos().length; i++, j++) {
 			
-			digitos[i] = Character.getNumericValue(numero.charAt(i));
+			digitos[i] = Character.getNumericValue(numero.charAt(j));
 			
 		}
 		

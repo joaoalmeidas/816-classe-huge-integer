@@ -5,7 +5,7 @@ public class HugeIntegerTeste {
 		
 		HugeInteger h = new HugeInteger();
 		
-		h.parse("4654");
+		h.parse("46545");
 		
 		System.out.println(h.toString());
 
