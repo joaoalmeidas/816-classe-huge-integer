@@ -220,5 +220,21 @@ public class HugeInteger {
 		
 	}
 	
+	public boolean isZero() {
+		
+		for(int i = 0; i < getDigitos().length; i++) {
+			
+			if(getDigitos()[i] != 0) {
+				
+				return false;
+				
+			}
+			
+		}
+		
+		return true;
+		
+	}
+	
 	
 }
