@@ -14,7 +14,6 @@ public class HugeInteger {
 	public void parse(String numero) {
 		
 		
-		
 		for(int i = (getDigitos().length) - numero.length(), j = 0 ; i < getDigitos().length; i++, j++) {
 			
 			digitos[i] = Character.getNumericValue(numero.charAt(j));
@@ -41,5 +40,26 @@ public class HugeInteger {
 		}
 		
 		return numero;
+	}
+	
+	public void add(HugeInteger hg) {
+		
+		for(int i = hg.getDigitos().length - 1; i >= 0; i--) {
+			
+			int soma = getDigitos()[i] + hg.getDigitos()[i];
+			
+			if(soma > 10) {
+				
+				getDigitos()[i] = soma%10;
+				getDigitos()[i-1]++ ;
+				
+			}else {
+				
+				getDigitos()[i] = soma;
+				
+			}
+			
+		}
+		
 	}
 }

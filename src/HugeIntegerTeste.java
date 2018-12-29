@@ -4,8 +4,12 @@ public class HugeIntegerTeste {
 	public static void main(String[] args) {
 		
 		HugeInteger h = new HugeInteger();
+		HugeInteger h2 = new HugeInteger();
 		
-		h.parse("46545");
+		h.parse("94");
+		h2.parse("100");
+		
+		h.add(h2);
 		
 		System.out.println(h.toString());
 
