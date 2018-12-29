@@ -10,7 +10,7 @@ public class HugeIntegerTeste {
 		h2.parse("40000");
 		
 		
-		System.out.println(h.isEqualTo(h2));
+		System.out.println(h.isNotEqualTo(h2));
 
 	}
 

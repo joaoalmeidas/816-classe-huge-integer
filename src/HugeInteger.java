@@ -169,4 +169,12 @@ public class HugeInteger {
 		return igual;
 		
 	}
+	
+	public boolean isNotEqualTo(HugeInteger hg) {
+		
+		return !isEqualTo(hg);
+		
+	}
+	
+	
 }
