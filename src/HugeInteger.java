@@ -176,5 +176,34 @@ public class HugeInteger {
 		
 	}
 	
+	public boolean isGreaterThan(HugeInteger hg) {
+		
+		
+		for(int i = 0; i < getDigitos().length; i++) {
+			
+			if(getDigitos()[i] != hg.getDigitos()[i]) {
+				
+				if(getDigitos()[i] > hg.getDigitos()[i]) {
+					
+					System.out.println(getDigitos()[i]);
+					System.out.println(hg.getDigitos()[i]);
+					
+					return true;
+					
+				}else {
+					
+					return false;
+					
+				}
+				
+			}
+			
+		}
+		
+		return false;
+		
+		
+	}
+	
 	
 }
