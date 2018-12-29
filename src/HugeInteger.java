@@ -70,7 +70,7 @@ public class HugeInteger {
 			
 			int soma = getDigitos()[i] + hg.getDigitos()[i];
 			
-			if(soma > 10) {
+			if(soma > 9) {
 				
 				getDigitos()[i] = soma%10;
 				getDigitos()[i-1]++ ;
@@ -151,6 +151,22 @@ public class HugeInteger {
 		}
 		
 		setDigitos(maior);
+		
+	}
+	
+	public boolean isEqualTo(HugeInteger hg) {
+		
+		boolean igual = true;
+		
+		for(int i = 0; i < getDigitos().length; i++) {
+			
+			if(igual == true && getDigitos()[i] != hg.getDigitos()[i]) {
+				igual = false;
+			}
+			
+		}
+		
+		return igual;
 		
 	}
 }

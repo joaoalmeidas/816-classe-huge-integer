@@ -6,12 +6,11 @@ public class HugeIntegerTeste {
 		HugeInteger h = new HugeInteger();
 		HugeInteger h2 = new HugeInteger();
 		
-		h.parse("1000");
-		h2.parse("800");
+		h.parse("4000");
+		h2.parse("40000");
 		
-		h.subtract(h2);
 		
-		System.out.println(h.toString());
+		System.out.println(h.isEqualTo(h2));
 
 	}
 
