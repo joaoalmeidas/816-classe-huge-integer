@@ -208,5 +208,17 @@ public class HugeInteger {
 		
 	}
 	
+	public boolean isGreaterThanOrEqualTo(HugeInteger hg) {
+		
+		return isGreaterThan(hg) || isEqualTo(hg);
+		
+	}
+	
+	public boolean isLessThanOrEqualTo(HugeInteger hg) {
+		
+		return isLessThan(hg) || isEqualTo(hg);
+		
+	}
+	
 	
 }
