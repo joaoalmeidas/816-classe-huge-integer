@@ -16,9 +16,26 @@ public class HugeInteger {
 		
 		for(int i = (getDigitos().length) - numero.length(), j = 0 ; i < getDigitos().length; i++, j++) {
 			
-			digitos[i] = Character.getNumericValue(numero.charAt(j));
+			if(numero.charAt(j) == '-') {
+				
+				digitos[i] = 0;
+				digitos[i+1] = -1;
+				
+			}else if(digitos[i] == -1) {
+				
+				digitos[i] = Character.getNumericValue(numero.charAt(j)) * -1;
+				
+			}else {
+				
+				digitos[i] = Character.getNumericValue(numero.charAt(j));
+				
+			}
+			
+			
 			
 		}
+		
+		
 		
 	}
 	
