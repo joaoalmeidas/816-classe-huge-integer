@@ -6,10 +6,10 @@ public class HugeIntegerTeste {
 		HugeInteger h = new HugeInteger();
 		HugeInteger h2 = new HugeInteger();
 		
-		h.parse("94");
-		h2.parse("100");
+		h.parse("100");
+		h2.parse("50");
 		
-		h.add(h2);
+		h.subtract(h2);
 		
 		System.out.println(h.toString());
 

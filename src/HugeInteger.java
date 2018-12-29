@@ -62,4 +62,23 @@ public class HugeInteger {
 		}
 		
 	}
+	
+	public void subtract(HugeInteger hg) {
+		
+		for(int i = hg.getDigitos().length - 1; i >= 0; i--) {
+			
+			if(getDigitos()[i] - hg.getDigitos()[i] < 0) {
+				
+				getDigitos()[i] = (10 + getDigitos()[i]) - hg.getDigitos()[i];
+				getDigitos()[i-1]--;
+				
+			}else {
+				
+				getDigitos()[i] = getDigitos()[i] - hg.getDigitos()[i];
+				
+			}
+			
+		}
+		
+	}
 }
