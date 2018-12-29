@@ -7,7 +7,7 @@ public class HugeIntegerTeste {
 		HugeInteger h2 = new HugeInteger();
 		
 		h.parse("100");
-		h2.parse("50");
+		h2.parse("100");
 		
 		h.subtract(h2);
 		

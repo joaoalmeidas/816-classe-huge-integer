@@ -39,6 +39,10 @@ public class HugeInteger {
 			
 		}
 		
+		if(ehZeroEsquerda == true) {
+			numero = "0";
+		}
+		
 		return numero;
 	}
 	
