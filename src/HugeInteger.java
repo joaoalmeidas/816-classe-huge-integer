@@ -20,4 +20,24 @@ public class HugeInteger {
 		}
 		
 	}
+	
+	public String toString() {
+		
+		String numero = "";
+		boolean ehZeroEsquerda = true;
+		
+		for(int i = 0; i < getDigitos().length; i++) {
+			
+			if(getDigitos()[i] != 0 && ehZeroEsquerda == true) {
+				ehZeroEsquerda = false;
+			}
+			
+			if(ehZeroEsquerda == false) {
+				numero += getDigitos()[i];
+			}
+			
+		}
+		
+		return numero;
+	}
 }

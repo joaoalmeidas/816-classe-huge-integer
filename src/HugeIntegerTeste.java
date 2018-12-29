@@ -7,11 +7,7 @@ public class HugeIntegerTeste {
 		
 		h.parse("4654");
 		
-		for(int i = h.getDigitos().length - 1; i >= 0; i--) {
-			
-			System.out.printf("%d", h.getDigitos()[i]);
-			
-		}
+		System.out.println(h.toString());
 
 	}
 
