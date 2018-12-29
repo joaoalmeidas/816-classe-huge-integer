@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class HugeInteger {
 	
@@ -86,20 +87,70 @@ public class HugeInteger {
 	
 	public void subtract(HugeInteger hg) {
 		
-		for(int i = hg.getDigitos().length - 1; i >= 0; i--) {
+		boolean maiorigual = false;
+		int [] maior, menor;
+		
+		for(int i = 0; i < hg.getDigitos().length; i++) {
 			
-			if(getDigitos()[i] - hg.getDigitos()[i] < 0) {
+			if(getDigitos()[i] != 0) {
 				
-				getDigitos()[i] = (10 + getDigitos()[i]) - hg.getDigitos()[i];
-				getDigitos()[i-1]--;
-				
-			}else {
-				
-				getDigitos()[i] = getDigitos()[i] - hg.getDigitos()[i];
+				if(getDigitos()[i] > hg.getDigitos()[i] && maiorigual == false) {
+					
+					maiorigual = true;
+					
+				}
 				
 			}
 			
 		}
+		
+		if(maiorigual == true) {
+			
+			maior = getDigitos();
+			menor = hg.getDigitos();
+			
+		}else {
+			
+			maior = hg.getDigitos();
+			menor = getDigitos();
+			
+		}
+		
+		for(int i = hg.getDigitos().length - 1; i >= 0; i--) {
+			
+			if(maior[i] - menor[i] < 0) {
+				
+				maior[i] = (10 + maior[i]) - menor[i];
+				maior[i-1]--;
+				
+			}else {
+				
+				maior[i] = maior[i] - menor[i];
+				
+			}
+			
+		}
+		
+		if(maiorigual == false) {
+			
+			int i = -1;
+			
+			do {
+				
+				i++;
+				
+				if(maior[i] != 0) {
+					
+					maior[i] *= -1;
+					
+				}
+				
+				
+			}while(maior[i] == 0 && i < maior.length);
+			
+		}
+		
+		setDigitos(maior);
 		
 	}
 }
