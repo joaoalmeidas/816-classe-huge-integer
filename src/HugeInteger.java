@@ -185,8 +185,6 @@ public class HugeInteger {
 				
 				if(getDigitos()[i] > hg.getDigitos()[i]) {
 					
-					System.out.println(getDigitos()[i]);
-					System.out.println(hg.getDigitos()[i]);
 					
 					return true;
 					
@@ -201,7 +199,12 @@ public class HugeInteger {
 		}
 		
 		return false;
+	
+	}
+	
+	public boolean isLessThan(HugeInteger hg) {
 		
+		return !isGreaterThan(hg) && !isEqualTo(hg);
 		
 	}
 	

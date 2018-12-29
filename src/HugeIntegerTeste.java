@@ -6,13 +6,13 @@ public class HugeIntegerTeste {
 		HugeInteger h = new HugeInteger();
 		HugeInteger h2 = new HugeInteger();
 		
-		h.parse("4001");
+		h.parse("4000");
 		h2.parse("4000");
 		
 		System.out.println(h.toString());
 		System.out.println(h2.toString());
 		
-		System.out.println(h.isGreaterThan(h2));
+		System.out.println(h.isLessThan(h2));
 
 	}
 
