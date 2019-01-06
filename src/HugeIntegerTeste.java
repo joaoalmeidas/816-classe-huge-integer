@@ -7,11 +7,11 @@ public class HugeIntegerTeste {
 		HugeInteger h2 = new HugeInteger();
 		
 		h.parse("100");
-		h2.parse("-200");
+		h2.parse("-50");
 		
 		
 		
-		h.add(h2);
+		h.subtract(h2);
 		
 		
 		System.out.println(h);
