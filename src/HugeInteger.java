@@ -67,15 +67,15 @@ public class HugeInteger {
 	public void add(HugeInteger hg) {
 		
 		if(isNegative() == true && hg.isNegative() == true) {
-			for(int i = hg.getDigitos().length - 1; i >= 0; i--) {
-				
+			
+			for(int i = hg.getDigitos().length - 1; i >= 0; i--) {	
 				
 				int soma = Math.abs(getDigitos()[i]) + Math.abs(hg.getDigitos()[i]);
 				
 				if(soma >= 10) {
 					
 					getDigitos()[i] = soma%10;
-					getDigitos()[i - 1] = soma/10;
+					getDigitos()[i - 1] = Math.abs(getDigitos()[i - 1]) + soma/10;
 					
 				}else{
 					
@@ -96,8 +96,27 @@ public class HugeInteger {
 				}
 				
 			}
+			
+		}else if(isNegative() == false && isNegative() == false) {
+			
+			for(int i = 0 ; i < getDigitos().length; i++) {
+				
+				int soma = getDigitos()[i] + hg.getDigitos()[i];
+				
+				if(soma >= 10) {
+					
+					getDigitos()[i] = soma%10;
+					getDigitos()[i - 1] += soma/10;
+					
+				}else {
+					
+					getDigitos()[i] = soma;
+					
+				}
+				
+			}
+			
 		}
-		
 		
 		
 	}

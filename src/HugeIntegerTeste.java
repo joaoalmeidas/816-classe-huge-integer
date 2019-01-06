@@ -6,8 +6,8 @@ public class HugeIntegerTeste {
 		HugeInteger h = new HugeInteger();
 		HugeInteger h2 = new HugeInteger();
 		
-		h.parse("-1");
-		h2.parse("-10");
+		h.parse("10000000000000000009");
+		h2.parse("1000000000000000009");
 		
 		h.isNegative();
 		h2.isNegative();
