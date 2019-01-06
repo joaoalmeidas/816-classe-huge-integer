@@ -66,22 +66,39 @@ public class HugeInteger {
 	
 	public void add(HugeInteger hg) {
 		
-		for(int i = hg.getDigitos().length - 1; i >= 0; i--) {
-			
-			int soma = getDigitos()[i] + hg.getDigitos()[i];
-			
-			if(soma > 9) {
+		if(isNegative() == true && hg.isNegative() == true) {
+			for(int i = hg.getDigitos().length - 1; i >= 0; i--) {
 				
-				getDigitos()[i] = soma%10;
-				getDigitos()[i-1]++ ;
 				
-			}else {
+				int soma = Math.abs(getDigitos()[i]) + Math.abs(hg.getDigitos()[i]);
 				
-				getDigitos()[i] = soma;
+				if(soma >= 10) {
+					
+					getDigitos()[i] = soma%10;
+					getDigitos()[i - 1] = soma/10;
+					
+				}else{
+					
+					getDigitos()[i] = soma; 
+					
+				}
 				
 			}
 			
+			for(int i = 0; i < getDigitos().length; i++) {
+				
+				if(getDigitos()[i] != 0) {
+					
+					getDigitos()[i] *= -1;
+					
+					i = getDigitos().length;
+					
+				}
+				
+			}
 		}
+		
+		
 		
 	}
 	
@@ -236,5 +253,31 @@ public class HugeInteger {
 		
 	}
 	
+	public boolean isNegative() {
+		
+		for(int i = 0; i < getDigitos().length; i++) {
+			
+			if(getDigitos()[i] < 0) {
+				
+				return true;
+				
+			}
+			
+		}
+		
+		return false;
+		
+	}
+	
+	public void multiply(HugeInteger hg) {
+		
+		for(int i = hg.getDigitos().length; i >= 0; i--) {
+			
+
+
+			
+		}
+		
+	}
 	
 }

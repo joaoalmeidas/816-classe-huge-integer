@@ -6,13 +6,16 @@ public class HugeIntegerTeste {
 		HugeInteger h = new HugeInteger();
 		HugeInteger h2 = new HugeInteger();
 		
-		h.parse("0000");
-		h2.parse("4000");
+		h.parse("-1");
+		h2.parse("-10");
 		
-		System.out.println(h.toString());
-		System.out.println(h2.toString());
+		h.isNegative();
+		h2.isNegative();
 		
-		System.out.println(h2.isZero());
+		h.add(h2);
+		
+		
+		System.out.println(h);
 
 	}
 
