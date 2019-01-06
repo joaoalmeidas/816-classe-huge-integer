@@ -97,7 +97,7 @@ public class HugeInteger {
 				
 			}
 			
-		}else if(isNegative() == false && isNegative() == false) {
+		}else if(isNegative() == false && hg.isNegative() == false) {
 			
 			for(int i = 0 ; i < getDigitos().length; i++) {
 				
@@ -116,78 +116,119 @@ public class HugeInteger {
 				
 			}
 			
+		}else{
+			
+			boolean negative;
+			
+			if(isEqualTo(hg)) {
+				
+				for(int i = 0; i < getDigitos().length; i++) {
+					
+					getDigitos()[i] = 0;
+					
+				}
+				
+			}else{
+				
+				if(isNegative() == true) {
+					
+					negative = true;
+					
+				}else{
+					
+					negative = false;
+					
+				}
+				
+				for(int i = 0 ; i < getDigitos().length; i++) {
+					
+					getDigitos()[i] = Math.abs(getDigitos()[i]);
+					hg.getDigitos()[i] = Math.abs(hg.getDigitos()[i]);
+					
+				}
+				
+				if(isGreaterThan(hg) == true && negative == true) {
+					
+					subtract(hg);
+					
+					for(int i = 0; i < getDigitos().length; i++) {
+						
+						if(getDigitos()[i] != 0) {
+							
+							getDigitos()[i] *= -1;
+							i = getDigitos().length;
+							
+						}
+						
+					}
+					
+				}else if(isGreaterThan(hg) == true && negative == false) {
+					
+					subtract(hg);
+					
+				}else if(isGreaterThan(hg) == false && negative == true) {
+					
+					int[] provisorio = getDigitos();
+					setDigitos(hg.getDigitos());
+					hg.setDigitos(provisorio);
+					
+					subtract(hg);
+					
+				}else if(isGreaterThan(hg) == false && negative == false) {
+					
+					int[] provisorio = getDigitos();
+					setDigitos(hg.getDigitos());
+					hg.setDigitos(provisorio);
+					
+					subtract(hg);
+					
+					for(int i = 0; i < getDigitos().length; i++) {
+						
+						if(getDigitos()[i] != 0) {
+							
+							getDigitos()[i] *= -1;
+							i = getDigitos().length;
+							
+						}
+						
+					}
+					
+				}
+				
+				
+			}
+			
 		}
+		
+		
 		
 		
 	}
 	
 	public void subtract(HugeInteger hg) {
 		
-		boolean maiorigual = false;
-		int [] maior, menor;
-		
-		for(int i = 0; i < hg.getDigitos().length; i++) {
+		for(int i = getDigitos().length - 1; i >= 0; i--) {
 			
-			if(getDigitos()[i] != 0) {
+			
+			
+			if(getDigitos()[i] < hg.getDigitos()[i]) {
 				
-				if(getDigitos()[i] > hg.getDigitos()[i] && maiorigual == false) {
-					
-					maiorigual = true;
-					
-				}
+				getDigitos()[i - 1]--;
+				getDigitos()[i] += 10;
 				
-			}
-			
-		}
-		
-		if(maiorigual == true) {
-			
-			maior = getDigitos();
-			menor = hg.getDigitos();
-			
-		}else {
-			
-			maior = hg.getDigitos();
-			menor = getDigitos();
-			
-		}
-		
-		for(int i = hg.getDigitos().length - 1; i >= 0; i--) {
-			
-			if(maior[i] - menor[i] < 0) {
-				
-				maior[i] = (10 + maior[i]) - menor[i];
-				maior[i-1]--;
+				getDigitos()[i] -= hg.getDigitos()[i];
 				
 			}else {
 				
-				maior[i] = maior[i] - menor[i];
+				getDigitos()[i] -= hg.getDigitos()[i];
 				
 			}
 			
 		}
 		
-		if(maiorigual == false) {
-			
-			int i = -1;
-			
-			do {
-				
-				i++;
-				
-				if(maior[i] != 0) {
-					
-					maior[i] *= -1;
-					
-				}
-				
-				
-			}while(maior[i] == 0 && i < maior.length);
-			
-		}
-		
-		setDigitos(maior);
-		
+		//100
+		//-50
+		//  0
 	}
 	
 	public boolean isEqualTo(HugeInteger hg) {
