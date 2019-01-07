@@ -476,4 +476,63 @@ public class HugeInteger {
 		
 	}
 	
+	public void divide(HugeInteger hg) {
+		
+		int divisor = 0, dividendo = 0;
+		int[] resultado = new int[getDigitos().length];
+		boolean positivo;
+		
+		if(isNegative() == false && hg.isNegative() == false || isNegative() == true && hg.isNegative() == true) {
+			positivo = true;
+		}else {
+			positivo = false;
+		}
+		
+		for(int i = 0; i < getDigitos().length; i++) {
+			
+			getDigitos()[i] = Math.abs(getDigitos()[i]);
+			hg.getDigitos()[i] = Math.abs(hg.getDigitos()[i]);
+			
+		}
+		
+		
+		for(int i = hg.getDigitos().length - 1, j = 1; i >= 0; i--, j *= 10) {
+			
+			divisor += hg.getDigitos()[i] * j;
+			
+		}
+		
+		for(int i = getDigitos().length - 1, j = 1; i >= 0; i--, j *= 10) {
+			
+			dividendo += getDigitos()[i] * j;
+			
+		}
+		
+		dividendo /= divisor;
+		
+		for(int i = resultado.length - 1; i >= 0 && divisor != 0; i--) {
+			
+			resultado[i] = dividendo%10;
+			dividendo /=10;
+		}
+		
+		if(positivo == false) {
+			
+			for(int i = 0; i < resultado.length; i++) {
+				
+				if(resultado[i] != 0) {
+					
+					resultado[i] *= -1;
+					i = resultado.length;
+					
+				}
+				
+			}
+			
+		}
+		
+		setDigitos(resultado);
+		
+	}
+	
 }
