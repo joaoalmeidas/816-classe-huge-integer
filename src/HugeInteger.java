@@ -400,6 +400,21 @@ public class HugeInteger {
 		
 		int[] multiplicacao = new int[getDigitos().length];
 		int[] resultado = new int[getDigitos().length];
+		boolean positivo;
+		
+		if(isNegative() == false && hg.isNegative() == false || isNegative() == true && hg.isNegative() == true) {
+			positivo = true;
+		}else {
+			positivo = false;
+		}
+		
+		
+		for(int i = 0; i < getDigitos().length; i++) {
+			
+			getDigitos()[i] = Math.abs(getDigitos()[i]);
+			hg.getDigitos()[i] = Math.abs(hg.getDigitos()[i]);
+			
+		}
 		
 		for(int i = hg.getDigitos().length - 1; i >= 0; i--) {
 			
@@ -437,6 +452,21 @@ public class HugeInteger {
 				
 				resultado[i - 1] += resultado[i]/10;
 				resultado[i] %= 10;
+				
+			}
+			
+		}
+		
+		if(positivo == false) {
+			
+			for(int i = 0; i < resultado.length; i++) {
+				
+				if(resultado[i] != 0) {
+					
+					resultado[i] *= -1;
+					i = resultado.length;
+					
+				}
 				
 			}
 			

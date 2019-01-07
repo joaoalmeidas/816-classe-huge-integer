@@ -6,7 +6,7 @@ public class HugeIntegerTeste {
 		HugeInteger h2 = new HugeInteger();
 		
 		h.parse("99");
-		h2.parse("324");
+		h2.parse("-324");
 		
 		
 		
