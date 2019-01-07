@@ -537,7 +537,8 @@ public class HugeInteger {
 	
 	public void remainder(HugeInteger hg) {
 		
-		int[] original = getDigitos(); 
+		int[] original = getDigitos();
+		int[] originalhg = hg.getDigitos();
 		
 		divide(hg);
 		multiply(hg);
@@ -546,6 +547,7 @@ public class HugeInteger {
 		setDigitos(original);
 		
 		subtract(hg);
+		hg.setDigitos(originalhg);
 		
 	}
 	
