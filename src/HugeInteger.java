@@ -535,4 +535,18 @@ public class HugeInteger {
 		
 	}
 	
+	public void remainder(HugeInteger hg) {
+		
+		int[] original = getDigitos(); 
+		
+		divide(hg);
+		multiply(hg);
+		
+		hg.setDigitos(getDigitos());
+		setDigitos(original);
+		
+		subtract(hg);
+		
+	}
+	
 }
