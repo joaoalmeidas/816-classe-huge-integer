@@ -292,27 +292,6 @@ public class HugeInteger {
 			}
 			
 			
-			
-			/*
-			for(int i = getDigitos().length - 1; i >= 0; i--) {
-				
-				
-				if(getDigitos()[i] < hg.getDigitos()[i]) {
-					
-					getDigitos()[i - 1]--;
-					getDigitos()[i] += 10;
-					
-					getDigitos()[i] -= hg.getDigitos()[i];
-					
-				}else {
-					
-					getDigitos()[i] -= hg.getDigitos()[i];
-					
-				}
-				
-			}
-			*/
-			
 		}
 		
 		
@@ -419,12 +398,51 @@ public class HugeInteger {
 	
 	public void multiply(HugeInteger hg) {
 		
-		for(int i = hg.getDigitos().length; i >= 0; i--) {
+		int[] multiplicacao = new int[getDigitos().length];
+		int[] resultado = new int[getDigitos().length];
+		
+		for(int i = hg.getDigitos().length - 1; i >= 0; i--) {
 			
-
-
+			for(int j = getDigitos().length - 1; j >= 0; j--) {
+				
+				multiplicacao[j] = getDigitos()[j] * hg.getDigitos()[i];
+				//System.out.println(getDigitos()[j]+ " * " +hg.getDigitos()[i]);
+				
+			}
+			
+			
+			for(int j = getDigitos().length - 1; j >= 0; j--) {
+				
+				if(multiplicacao[j] >= 10) {
+					
+					multiplicacao[j-1] += multiplicacao[j] / 10;
+					multiplicacao[j] = multiplicacao[j] % 10;
+					
+				}
+				
+			}
+			
+			for(int j = i, k = getDigitos().length - 1; j >= 0; j--, k--) {
+				
+				resultado[j] += multiplicacao[k];
+						
+			}
+			
 			
 		}
+		
+		for(int i = resultado.length - 1; i >= 0; i--) {
+			
+			if(resultado[i] >= 10) {
+				
+				resultado[i - 1] += resultado[i]/10;
+				resultado[i] %= 10;
+				
+			}
+			
+		}
+		
+		setDigitos(resultado);
 		
 	}
 	

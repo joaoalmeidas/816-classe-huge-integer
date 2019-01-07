@@ -5,12 +5,12 @@ public class HugeIntegerTeste {
 		HugeInteger h = new HugeInteger();
 		HugeInteger h2 = new HugeInteger();
 		
-		h.parse("-10");
-		h2.parse("-150");
+		h.parse("99");
+		h2.parse("324");
 		
 		
 		
-		h.subtract(h2);
+		h.multiply(h2);
 		
 		
 		System.out.println(h);
